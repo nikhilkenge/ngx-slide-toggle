@@ -1,0 +1,51 @@
+{
+  "name": "ngx-slide-toggle",
+  "version": "0.1.0",
+  "description": "A lightweight Angular package for including toggle switches in applications.",
+  "main": "./bundles/ngx-slide-toggle.umd.js",
+  "module": "./esm5/ngx-slide-toggle.js",
+  "es2015": "./esm2015/ngx-slide-toggle.js",
+  "typings": "./ngx-slide-toggle.d.ts",
+  "scripts": {
+    "copyfiles": "copyfiles",
+    "build": "npm run clean:all && npm run build:inline && npm run build:esm2015 && npm run build:fesm2015 && npm run build:esm5 && npm run build:fesm5 && npm run build:umd && npm run build:min && npm run move:assets && npm run clean:tmp",
+    "build:inline": "copyfiles *.ts ./tmp && node inlineAssets.js",
+    "build:esm2015": "ngc -p tsconfig-esm2015.json",
+    "build:fesm2015": "rollup -c rollup-esm2015.conf.js",
+    "build:esm5": "ngc -p tsconfig-esm5.json",
+    "build:fesm5": "rollup -c rollup-esm5.conf.js",
+    "build:umd": "rollup -c rollup-umd.conf.js",
+    "build:min": "uglifyjs dist/bundles/ngx-slide-toggle.umd.js -c -m -o dist/bundles/ngx-slide-toggle.umd.min.js",
+    "move:assets": "cpx './tmp/esm2015/src/**/*.d.ts' dist/src && cpx './tmp/esm2015/*.{d.ts,json}' dist && copyfiles README.md package.json dist",
+    "clean:all": "rimraf dist/ && npm run clean:tmp",
+    "clean:tmp": "rimraf tmp/",
+    "copyPackageJson": "copyfiles package.json dist",
+    "semantic-release": "semantic-release pre && npm run copyPackageJson && npm publish dist && semantic-release post"
+  },
+  "author": "Nikhil Kenge",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "^2.0.0",
+    "@angular/common": "^2.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.2",
+    "@angular/compiler-cli": "^5.0.2",
+    "@angular/core": "^5.0.2",
+    "copyfiles": "^1.2.0",
+    "cpx": "^1.5.0",
+    "gulp-inline-ng2-template": "^4.0.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.51.8",
+    "semantic-release": "^8.2.0",
+    "typescript": "2.4.2",
+    "uglify-js": "^3.0.7",
+    "vinyl-fs": "^2.4.4",
+    "zone.js": "^0.8.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikhilkenge/ngx-slide-toggle.git"
+  }
+}

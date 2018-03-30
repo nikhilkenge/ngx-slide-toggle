@@ -1,0 +1,6 @@
+<div class="material-switch">
+  <input #materialSlideToggle [id]="id" [attr.name]="name" type="checkbox" [attr.aria-label]="ariaLabel" [attr.aria-labelledby]="ariaLabelledby"
+    (click)="onClick($event)" (change)="onChange($event)" [checked]="checked" [disabled]="disabled" [class.disabled]="disabled"
+  />
+  <label [attr.for]="id" [class.disabled]="disabled" class="label-primary"></label>
+</div>

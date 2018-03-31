@@ -1,7 +1,7 @@
 {
   "name": "ngx-slide-toggle",
   "version": "0.1.0",
-  "description": "A lightweight Angular package for including toggle switches in applications.",
+  "description": "Slide Toggle component for Angular 2/4/5.",
   "main": "./bundles/ngx-slide-toggle.umd.js",
   "module": "./esm5/ngx-slide-toggle.js",
   "es2015": "./esm2015/ngx-slide-toggle.js",
@@ -47,5 +47,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/nikhilkenge/ngx-slide-toggle.git"
-  }
+  },
+  "keywords": ["angular2", "angular4", "angular5", "material", "slide", "toggle"]
 }
